@@ -1,0 +1,41 @@
+ext {
+    //定义一个项目全局变量isRelease，用于动态切换：组件化模式/集成化模式
+    //false：组件化模式(子模块可以独立运行)，true：集成化模式（打包整个项目apk，子模块不可独立运行）
+    //生产、开发环境
+    isRelease = true
+
+    //用于存放APT生成的类文件
+    packageNameForAPT = "com.jiehun.veigar.apt"
+
+    //建立map存储 对象名 key都可以自定义，groovy糖果语法 非常灵活
+    androidId = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "29.0.0",
+
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    appId = [
+            "app"  : "com.jiehun.veigar.modulardemo",
+            "order": "com.jiehun.veigar.order",
+            "personal":"com.jiehun.veigar.personal"
+
+    ]
+
+    url = [
+            "debug"  : "http:123.123.123/debug",
+            "release": "http:123.123.123/release"
+    ]
+
+
+    supportLibrary = "28.0.0"
+
+    dependencies = [
+            "appcompat"   : "com.android.support:appcompat-v7:${supportLibrary}",
+            "recyclerview": "com.android.support:recyclerview-v7:${supportLibrary}",
+            "constraint"  : "com.android.support.constraint:constraint-layout:1.1.3"
+    ]
+}
